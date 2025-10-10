@@ -1,0 +1,162 @@
+#include<stdio.h>
+int arr[100], n;
+
+// traversing
+int transverse(int arr[], int n) {
+    printf("\nTransversing the array:\n");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
+
+// insertion
+int insert_value(int a, int b) {
+    printf("Enter position to insert: ");
+    scanf("%d", &a);
+    printf("Enter value to insert: ");
+    scanf("%d", &b);
+    for (int i = n; i > a; i--) { 
+        arr[i] = arr[i - 1];
+    }
+    arr[a] = b;
+    n++;
+    printf("Array after insertion:\n");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+}
+
+// bubble sort
+int bubble_sort(int arr[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+    printf("\nArray sorted using Bubble Sort:\n");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+}
+
+// deletion
+int delete_element(int n, int pos) {
+    if (pos < 0 || pos >= n) {
+        printf("Invalid position!\n");
+        return n;
+    }
+    for (int i = pos; i < n - 1; i++) {
+        arr[i] = arr[i + 1];
+    }
+    n--;
+    printf("\nArray after deletion:\n");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    return n;
+}
+
+// linear search
+int linear_search(int arr[], int n, int value) {
+    for (int i = 0; i < n; i++) {
+        if (arr[i] == value) {
+            printf("Element %d found at index %d\n", value, i);
+            return i;
+        }
+    }
+    printf("Element %d not found!\n", value);
+    return -1;
+}
+
+// binary search
+int binary_search(int arr[], int n, int value) {
+    int low = 0, high = n - 1;
+    while (low <= high) {
+        int mid = low  + (high - low) / 2;
+        if (arr[mid] == value) {
+            printf("Element %d found at index %d\n", value, mid);
+            return mid;
+        } else if (arr[mid] < value) {
+            low = mid + 1;
+        } else {
+            high = mid - 1;
+        }
+    }
+    printf("Element %d not found!\n", value);
+    return -1;
+}
+
+int main() {
+    printf("Enter the number of elements in the array: ");
+    scanf("%d", &n);
+    printf("Enter %d elements:\n", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    printf("Array initialized successfully!\n");
+
+    while (1) {
+        printf("\nChoose an operation:\n");
+        printf("1. Insert an element\n");
+        printf("2. Delete an element\n");
+        printf("3. Sort the array using Bubble Sort\n");
+        printf("4. Transverse the array\n");
+        printf("5. Search an element (Linear/Binary)\n");
+        printf("6. Exit\n");
+
+        int choice;
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                insert_value(0, 0);
+                break;
+
+            case 2: {
+                int pos;
+                printf("Enter position to delete: ");
+                scanf("%d", &pos);
+                n = delete_element(n, pos);
+                break;
+            }
+
+            case 3:
+                bubble_sort(arr, n);
+                break;
+
+            case 4:
+                transverse(arr, n);
+                break;
+
+            case 5: {
+                int value, type;
+                printf("Enter value to search: ");
+                scanf("%d", &value);
+                printf("Choose Search Type: 1. Linear  2. Binary\n");
+                scanf("%d", &type);
+                if (type == 1) {
+                    linear_search(arr, n, value);
+                } else if (type == 2) {
+                    bubble_sort(arr, n); // binary search needs sorted array
+                    binary_search(arr, n, value);
+                } else {
+                    printf("Invalid search type!\n");
+                }
+                break;
+            }
+
+            case 6:
+                printf("Exiting...\n");
+                return 0;
+
+            default:
+                printf("Invalid choice! Please try again.\n");
+        }
+    }
+}

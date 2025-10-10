@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Madhav</title>
+  <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .navbar {
+      position: fixed;
+      width: 100%;
+      background: #1e293b;
+      padding: 20px 10%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #38bdf8;
+    }
+
+    .navbar nav ul {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .navbar nav ul li a {
+      color: #cbd5e1;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .navbar nav ul li a:hover,
+    .navbar nav ul li .active {
+      color: #38bdf8;
+    }
+
+    .contact-section {
+      min-height: 100vh;
+      padding: 120px 10% 60px;
+      text-align: center;
+    }
+
+    .contact-section h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #facc15;
+    }
+
+    .contact-section p {
+      font-size: 18px;
+      margin-bottom: 40px;
+      color: #cbd5e1;
+    }
+
+    .mail-btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #38bdf8;
+        color: #0f172a;
+        font-weight: bold;
+        border-radius: 25px;
+        transition: 0.3s;
+    }
+
+
+  
+    .mail-btn:hover {
+        background-color: #facc15;
+        color: #0f172a;
+    }
+
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .contact-box {
+      background: #1e293b;
+      padding: 20px 30px;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 500px;
+      text-align: left;
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
+    }
+
+    .contact-box h3 {
+      font-size: 20px;
+      color: #38bdf8;
+      margin-bottom: 8px;
+    }
+
+    .contact-box a {
+      color: #facc15;
+      font-size: 16px;
+      word-break: break-all;
+    }
+
+    .social-icons {
+      margin-top: 30px;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .social-icons a {
+      font-size: 28px;
+      color: #38bdf8;
+      transition: 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #facc15;
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">Madhav.dev</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <h2>Contact Me</h2>
+    <p>Feel free to connect with me via Email, LinkedIn, or GitHub.</p>          
+    </div>
+
+    <div class="social-icons">
+        <a href="mailto:madhav@example.com" title="Email Me">
+            <i class='bx bxs-envelope'></i>
+          </a>
+             
+      <a href="https://github.com/madhav-lakhotia" target="_blank"><i class='bx bxl-github'></i></a>
+      <a href="https://www.linkedin.com/in/madhav-lakhotia-5b43b432a" target="_blank"><i class='bx bxl-linkedin'></i></a>
+    </div>
+  </section>
+
+</body>
+</html>
