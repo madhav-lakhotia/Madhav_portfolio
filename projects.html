@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Madhav | Projects</title>
   <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+
   <style>
     * {
       margin: 0;
@@ -23,6 +24,7 @@
       color: inherit;
     }
 
+    /* NAVBAR */
     .navbar {
       position: fixed;
       width: 100%;
@@ -57,10 +59,10 @@
       color: #38bdf8;
     }
 
+    /* PROJECTS */
     .projects {
       padding: 120px 10% 60px;
       min-height: 100vh;
-      background-color: #0f172a;
       text-align: center;
     }
 
@@ -71,10 +73,9 @@
     }
 
     .projects-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 30px;
-        justify-content: center; 
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
     }
 
     .project-card {
@@ -83,6 +84,11 @@
       border-radius: 12px;
       box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
       transition: transform 0.3s, background 0.3s;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
     }
 
     .project-card:hover {
@@ -100,12 +106,13 @@
       font-size: 14px;
       color: #cbd5e1;
       margin-bottom: 15px;
+      flex-grow: 1;
     }
 
     .project-card a {
-      display: inline-block;
+      align-self: center;
       margin-top: 10px;
-      padding: 8px 18px;
+      padding: 10px 20px;
       background: #38bdf8;
       color: #0f172a;
       font-weight: bold;
@@ -120,16 +127,18 @@
     }
   </style>
 </head>
+
 <body>
+
   <!-- Navbar -->
   <header class="navbar">
     <div class="logo">Madhav.dev</div>
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="skills.html">Skills</a></li>
-        <li><a href="projects.html" class="active">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./skills.html">Skills</a></li>
+        <li><a href="./projects.html" class="active">Projects</a></li>
+        <li><a href="./contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -137,33 +146,35 @@
   <!-- Projects Section -->
   <section class="projects">
     <h2>My Projects</h2>
+
     <div class="projects-container">
+
       <div class="project-card">
         <h3>Kisan Sahayak</h3>
-        <p>Kisan Sahayak is a Flutter-based mobile application designed to empower farmers by providing real-time assistance, market insights, weather updates, disease detection, voice-based navigation, and offline diary management — all in one simple and farmer-friendly app.</p></p>
-        <a href="https://github.com/madhav-lakhotia/kisan_sahayak">View Project</a>
+        <p>A Flutter-based mobile app providing farmers with real-time assistance, market insights, weather updates, and offline tools.</p>
+        <a href="https://github.com/madhav-lakhotia/kisan_sahayak" target="_blank">View Project</a>
       </div>
+
       <div class="project-card">
         <h3>Crime Rate Predictor</h3>
-        <p>An AI-based system that predicts crime rate in a city based on selected parameters and past data.</p>
-        <a href="https://github.com/madhav-lakhotia/Crime-Rate-Prediction">View Project</a>
+        <p>An AI-based system that predicts crime rates in cities using historical data and selected parameters.</p>
+        <a href="https://github.com/madhav-lakhotia/Crime-Rate-Prediction" target="_blank">View Project</a>
       </div>
-      <div class="project-card">
-        <h3>Event Info-Webpage</h3>
-        <p>About
-            I had created a Tech Fest event Webpages in which the Event details and all the necessary thing are mentioned that which are the events going to happen and what are rules and regulations and when going to happen the Venue, Time and Date.</p>
-        <a href="https://github.com/madhav-lakhotia/Event-Page">View Project</a>
-      </div>
- <div class="project-card">
-        <h3>Aadhaar Risk Intelligence System (ARIS)</h3>
-        <p>About
-            Aadhaar Risk Intelligence System (ARIS) is a data-driven analytics project aimed at uncovering meaningful patterns, anomalies, and risk indicators in Aadhaar enrolment and update data. Despite widespread Aadhaar adoption, service demand and update behaviour vary significantly across regions. This project focuses on analyzing these variations at district and pincode levels to better understand societal trends and improve service delivery.
 
-ARIS leverages the concept of biometric behaviour (bio-age) versus demographic age (DOB) to identify deviations and unusual patterns. By combining statistical analysis with regional insights, the system highlights areas with potential service stress, higher update demand, or irregular activity patterns.</p>
-        <a href="https://github.com/madhav-lakhotia/Aadhaar-Risk-Intelligence-System-ARIS">View Project</a>
- </div>
+      <div class="project-card">
+        <h3>Event Info Webpage</h3>
+        <p>A tech fest website displaying event details, schedules, rules, and venue information in a structured format.</p>
+        <a href="https://github.com/madhav-lakhotia/Event-Page" target="_blank">View Project</a>
+      </div>
+
+      <div class="project-card">
+        <h3>ARIS (Aadhaar Risk Intelligence)</h3>
+        <p>A data analytics project identifying patterns and anomalies in Aadhaar data to detect unusual activity and service demand.</p>
+        <a href="https://github.com/madhav-lakhotia/Aadhaar-Risk-Intelligence-System-ARIS" target="_blank">View Project</a>
+      </div>
 
     </div>
   </section>
+
 </body>
 </html>
