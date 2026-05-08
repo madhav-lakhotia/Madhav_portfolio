@@ -3,177 +3,419 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Madhav | Projects</title>
+
+  <!-- GOOGLE FONT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- BOXICONS -->
   <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
 
   <style>
-    * {
+
+    *{
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #0f172a;
-      color: #e2e8f0;
+    body{
+      font-family: 'Poppins', sans-serif;
+      background: #f8fafc;
+      color: #334155;
+      overflow-x: hidden;
     }
 
-    a {
+    a{
       text-decoration: none;
       color: inherit;
     }
 
-    /* NAVBAR */
-    .navbar {
+    /* ================= NAVBAR ================= */
+
+    .navbar{
       position: fixed;
+      top: 0;
       width: 100%;
-      background: #1e293b;
       padding: 20px 10%;
+
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 999;
+
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(12px);
+
+      border-bottom: 1px solid #ecd5e3;
+
+      z-index: 1000;
+
+      box-shadow: 0 5px 20px rgba(0,0,0,0.04);
     }
 
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-      color: #38bdf8;
+    .logo{
+      font-size: 28px;
+      font-weight: 700;
+      color: #7c3aed;
     }
 
-    .navbar nav ul {
+    nav ul{
       display: flex;
       gap: 30px;
       list-style: none;
     }
 
-    .navbar nav ul li a {
-      color: #cbd5e1;
+    nav ul li a{
+      color: #475569;
       font-weight: 500;
-      transition: 0.3s;
+      transition: 0.3s ease;
+      position: relative;
     }
 
-    .navbar nav ul li a:hover,
-    .navbar nav ul li .active {
-      color: #38bdf8;
+    nav ul li a::after{
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+
+      width: 0%;
+      height: 2px;
+
+      background: #a855f7;
+
+      transition: 0.3s ease;
     }
 
-    /* PROJECTS */
-    .projects {
-      padding: 120px 10% 60px;
+    nav ul li a:hover::after{
+      width: 100%;
+    }
+
+    nav ul li a:hover,
+    nav ul li .active{
+      color: #a855f7;
+    }
+
+    /* ================= PROJECTS ================= */
+
+    .projects{
       min-height: 100vh;
+
+      padding: 140px 10% 80px;
+
+      background:
+      linear-gradient(
+      135deg,
+      #fee1e8,
+      #f8fafc,
+      #c6dbda
+      );
+    }
+
+    .projects h2{
       text-align: center;
+
+      font-size: 48px;
+
+      color: #1e293b;
+
+      margin-bottom: 60px;
+
+      animation: fadeDown 1s ease;
     }
 
-    .projects h2 {
-      font-size: 36px;
-      margin-bottom: 40px;
-      color: #facc15;
-    }
-
-    .projects-container {
+    .projects-container{
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 30px;
+
+      grid-template-columns:
+      repeat(auto-fit, minmax(300px, 1fr));
+
+      gap: 35px;
     }
 
-    .project-card {
-      background: #1e293b;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
-      transition: transform 0.3s, background 0.3s;
+    /* ================= PROJECT CARD ================= */
+
+    .project-card{
+      background: rgba(255,255,255,0.45);
+
+      backdrop-filter: blur(10px);
+
+      border-radius: 28px;
+
+      padding: 30px;
+
+      border: 1px solid rgba(255,255,255,0.4);
+
+      box-shadow:
+      0 15px 35px rgba(0,0,0,0.05);
+
+      transition: 0.4s ease;
 
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      height: 100%;
+
+      animation: fadeUp 1s ease;
     }
 
-    .project-card:hover {
-      transform: translateY(-8px);
-      background: #334155;
+    .project-card:hover{
+      transform: translateY(-10px);
+
+      box-shadow:
+      0 20px 40px rgba(168,85,247,0.15);
     }
 
-    .project-card h3 {
-      font-size: 20px;
-      color: #38bdf8;
-      margin-bottom: 10px;
-    }
+    .project-card h3{
+      font-size: 24px;
 
-    .project-card p {
-      font-size: 14px;
-      color: #cbd5e1;
+      color: #7c3aed;
+
       margin-bottom: 15px;
+    }
+
+    .project-card p{
+      font-size: 15px;
+
+      line-height: 1.8;
+
+      color: #475569;
+
+      margin-bottom: 25px;
+
       flex-grow: 1;
     }
 
-    .project-card a {
-      align-self: center;
-      margin-top: 10px;
-      padding: 10px 20px;
-      background: #38bdf8;
-      color: #0f172a;
-      font-weight: bold;
-      border-radius: 25px;
-      transition: 0.3s;
+    /* ================= TECH TAGS ================= */
+
+    .tags{
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 10px;
+
+      margin-bottom: 25px;
     }
 
-    .project-card a:hover {
-      background: transparent;
-      color: #38bdf8;
-      border: 2px solid #38bdf8;
+    .tags span{
+      background: #ffffff;
+
+      color: #7c3aed;
+
+      padding: 8px 14px;
+
+      border-radius: 30px;
+
+      font-size: 13px;
+      font-weight: 500;
+
+      box-shadow:
+      0 5px 15px rgba(0,0,0,0.05);
     }
+
+    /* ================= BUTTON ================= */
+
+    .project-card a{
+      align-self: flex-start;
+
+      background: #a855f7;
+      color: white;
+
+      padding: 12px 24px;
+
+      border-radius: 14px;
+
+      font-weight: 600;
+
+      transition: 0.3s ease;
+
+      box-shadow:
+      0 10px 25px rgba(168,85,247,0.2);
+    }
+
+    .project-card a:hover{
+      transform: translateY(-4px);
+
+      box-shadow:
+      0 15px 30px rgba(168,85,247,0.25);
+    }
+
+    /* ================= ANIMATIONS ================= */
+
+    @keyframes fadeUp{
+
+      from{
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      to{
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+    }
+
+    @keyframes fadeDown{
+
+      from{
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+
+      to{
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media (max-width: 768px){
+
+      .projects{
+        padding: 120px 6% 60px;
+      }
+
+      .projects h2{
+        font-size: 36px;
+      }
+
+      .project-card{
+        padding: 25px;
+      }
+
+      .project-card h3{
+        font-size: 22px;
+      }
+
+    }
+
   </style>
+
 </head>
 
 <body>
 
-  <!-- Navbar -->
+  <!-- ================= NAVBAR ================= -->
+
   <header class="navbar">
-    <div class="logo">Madhav.dev</div>
+
+    <div class="logo">Madhav</div>
+
     <nav>
+
       <ul>
         <li><a href="./index.html">Home</a></li>
         <li><a href="./skills.html">Skills</a></li>
         <li><a href="./projects.html" class="active">Projects</a></li>
         <li><a href="./contact.html">Contact</a></li>
       </ul>
+
     </nav>
+
   </header>
 
-  <!-- Projects Section -->
+  <!-- ================= PROJECTS ================= -->
+
   <section class="projects">
+
     <h2>My Projects</h2>
 
     <div class="projects-container">
 
+      <!-- PROJECT 1 -->
+
       <div class="project-card">
+
         <h3>Kisan Sahayak</h3>
-        <p>A Flutter-based mobile app providing farmers with real-time assistance, market insights, weather updates, and offline tools.</p>
-        <a href="https://github.com/madhav-lakhotia/kisan_sahayak" target="_blank">View Project</a>
+
+        <p>
+          A Flutter-based mobile application designed to help farmers with market insights, weather updates, and offline accessibility tools.
+        </p>
+
+        <div class="tags">
+          <span>Flutter</span>
+          <span>Dart</span>
+          <span>Firebase</span>
+        </div>
+
+        <a href="https://github.com/madhav-lakhotia/kisan_sahayak" target="_blank">
+          View Project
+        </a>
+
       </div>
 
+      <!-- PROJECT 2 -->
+
       <div class="project-card">
+
         <h3>Crime Rate Predictor</h3>
-        <p>An AI-based system that predicts crime rates in cities using historical data and selected parameters.</p>
-        <a href="https://github.com/madhav-lakhotia/Crime-Rate-Prediction" target="_blank">View Project</a>
+
+        <p>
+          An AI-powered crime analysis platform that predicts city crime trends using historical datasets and real-time parameters.
+        </p>
+
+        <div class="tags">
+          <span>Python</span>
+          <span>Flask</span>
+          <span>Machine Learning</span>
+        </div>
+
+        <a href="https://github.com/madhav-lakhotia/Crime-Rate-Prediction" target="_blank">
+          View Project
+        </a>
+
       </div>
 
+      <!-- PROJECT 3 -->
+
       <div class="project-card">
+
         <h3>Event Info Webpage</h3>
-        <p>A tech fest website displaying event details, schedules, rules, and venue information in a structured format.</p>
-        <a href="https://eventpage-eight.vercel.app/" target="_blank">View Project</a>
+
+        <p>
+          A responsive event website displaying schedules, venue details, and participation information with a clean user interface.
+        </p>
+
+        <div class="tags">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+        </div>
+
+        <a href="https://eventpage-eight.vercel.app/" target="_blank">
+          View Project
+        </a>
+
       </div>
 
+      <!-- PROJECT 4 -->
+
       <div class="project-card">
-        <h3>ARIS (Aadhaar Risk Intelligence)</h3>
-        <p>A data analytics project identifying patterns and anomalies in Aadhaar data to detect unusual activity and service demand.</p>
-        <a href="https://github.com/madhav-lakhotia/Aadhaar-Risk-Intelligence-System-ARIS" target="_blank">View Project</a>
+
+        <h3>ARIS</h3>
+
+        <p>
+          Aadhaar Risk Intelligence System focused on identifying anomalies and regional patterns using demographic and biometric datasets.
+        </p>
+
+        <div class="tags">
+          <span>Python</span>
+          <span>Pandas</span>
+          <span>Power BI</span>
+        </div>
+
+        <a href="https://github.com/madhav-lakhotia/Aadhaar-Risk-Intelligence-System-ARIS" target="_blank">
+          View Project
+        </a>
+
       </div>
 
     </div>
+
   </section>
 
 </body>
