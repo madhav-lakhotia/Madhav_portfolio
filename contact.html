@@ -2,176 +2,432 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
   <title>Contact | Madhav</title>
-  <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+
+  <!-- GOOGLE FONT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- BOXICONS -->
+  <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
     }
 
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #0f172a;
-      color: #e2e8f0;
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#f8fafc;
+      color:#334155;
+      overflow-x:hidden;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
+    a{
+      text-decoration:none;
+      color:inherit;
     }
 
-    .navbar {
-      position: fixed;
-      width: 100%;
-      background: #1e293b;
-      padding: 20px 10%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 999;
+    /* ================= NAVBAR ================= */
+
+    .navbar{
+      position:fixed;
+      top:0;
+      width:100%;
+
+      padding:20px 10%;
+
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+
+      background:rgba(255,255,255,0.7);
+      backdrop-filter:blur(12px);
+
+      border-bottom:1px solid #ecd5e3;
+
+      z-index:1000;
+
+      box-shadow:0 5px 20px rgba(0,0,0,0.04);
     }
 
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-      color: #38bdf8;
+    .logo{
+      font-size:28px;
+      font-weight:700;
+      color:#7c3aed;
     }
 
-    .navbar nav ul {
-      display: flex;
-      gap: 30px;
-      list-style: none;
+    nav ul{
+      display:flex;
+      gap:30px;
+      list-style:none;
     }
 
-    .navbar nav ul li a {
-      color: #cbd5e1;
-      font-weight: 500;
-      transition: 0.3s;
+    nav ul li a{
+      color:#475569;
+      font-weight:500;
+      transition:0.3s ease;
+      position:relative;
     }
 
-    .navbar nav ul li a:hover,
-    .navbar nav ul li .active {
-      color: #38bdf8;
+    nav ul li a::after{
+      content:"";
+      position:absolute;
+
+      left:0;
+      bottom:-5px;
+
+      width:0%;
+      height:2px;
+
+      background:#a855f7;
+
+      transition:0.3s ease;
     }
 
-    .contact-section {
-      min-height: 100vh;
-      padding: 120px 10% 60px;
-      text-align: center;
+    nav ul li a:hover::after{
+      width:100%;
     }
 
-    .contact-section h2 {
-      font-size: 36px;
-      margin-bottom: 20px;
-      color: #facc15;
+    nav ul li a:hover,
+    nav ul li .active{
+      color:#a855f7;
     }
 
-    .contact-section p {
-      font-size: 18px;
-      margin-bottom: 40px;
-      color: #cbd5e1;
+    /* ================= CONTACT SECTION ================= */
+
+    .contact-section{
+      min-height:100vh;
+
+      padding:140px 10% 80px;
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+
+      background:
+      linear-gradient(
+      135deg,
+      #FEE1E8 0%,
+      #F8FAFC 45%,
+      #C6DBDA 100%
+      );
     }
 
-    .mail-btn {
-        display: inline-block;
-        padding: 10px 20px;
-        background-color: #38bdf8;
-        color: #0f172a;
-        font-weight: bold;
-        border-radius: 25px;
-        transition: 0.3s;
+    /* ================= CONTACT CONTAINER ================= */
+
+    .contact-container{
+      width:100%;
+      max-width:750px;
+
+      background:rgba(255,255,255,0.72);
+
+      padding:55px;
+
+      border-radius:35px;
+
+      backdrop-filter:blur(14px);
+
+      border:1px solid rgba(255,255,255,0.8);
+
+      box-shadow:
+      0 20px 45px rgba(0,0,0,0.06);
+
+      position:relative;
+
+      overflow:hidden;
+
+      text-align:center;
+
+      animation:fadeUp 1s ease;
     }
 
+    .contact-container::before{
+      content:"";
 
-  
-    .mail-btn:hover {
-        background-color: #facc15;
-        color: #0f172a;
+      position:absolute;
+
+      width:240px;
+      height:240px;
+
+      background:rgba(192,132,252,0.16);
+
+      border-radius:50%;
+
+      top:-90px;
+      right:-90px;
+
+      z-index:0;
     }
 
-
-    .contact-info {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
+    .contact-container *{
+      position:relative;
+      z-index:1;
     }
 
-    .contact-box {
-      background: #1e293b;
-      padding: 20px 30px;
-      border-radius: 12px;
-      width: 100%;
-      max-width: 500px;
-      text-align: left;
-      box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
+    /* ================= HEADING ================= */
+
+    .contact-container h2{
+      font-size:48px;
+
+      color:#1e293b;
+
+      margin-bottom:18px;
     }
 
-    .contact-box h3 {
-      font-size: 20px;
-      color: #38bdf8;
-      margin-bottom: 8px;
+    .contact-container p{
+      font-size:17px;
+
+      color:#64748b;
+
+      line-height:1.8;
+
+      margin-bottom:40px;
     }
 
-    .contact-box a {
-      color: #facc15;
-      font-size: 16px;
-      word-break: break-all;
+    /* ================= CONTACT BOXES ================= */
+
+    .contact-info{
+      display:flex;
+      flex-direction:column;
+
+      gap:22px;
+
+      margin-bottom:40px;
     }
 
-    .social-icons {
-      margin-top: 30px;
-      display: flex;
-      gap: 20px;
-      justify-content: center;
+    .contact-box{
+      background:white;
+
+      padding:24px 28px;
+
+      border-radius:22px;
+
+      text-align:left;
+
+      box-shadow:
+      0 10px 25px rgba(0,0,0,0.05);
+
+      transition:0.3s ease;
     }
 
-    .social-icons a {
-      font-size: 28px;
-      color: #38bdf8;
-      transition: 0.3s;
+    .contact-box:hover{
+      transform:translateY(-5px);
+
+      box-shadow:
+      0 15px 30px rgba(168,85,247,0.12);
     }
 
-    .social-icons a:hover {
-      color: #facc15;
-      transform: scale(1.1);
+    .contact-box h3{
+      font-size:20px;
+
+      color:#7c3aed;
+
+      margin-bottom:8px;
+
+      display:flex;
+      align-items:center;
+
+      gap:10px;
     }
+
+    .contact-box a{
+      color:#475569;
+
+      font-size:15px;
+
+      word-break:break-word;
+    }
+
+    /* ================= SOCIAL ICONS ================= */
+
+    .social-icons{
+      display:flex;
+      justify-content:center;
+
+      gap:18px;
+    }
+
+    .social-icons a{
+      width:58px;
+      height:58px;
+
+      border-radius:18px;
+
+      background:white;
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+
+      font-size:28px;
+
+      color:#7c3aed;
+
+      transition:0.3s ease;
+
+      box-shadow:
+      0 10px 25px rgba(0,0,0,0.05);
+    }
+
+    .social-icons a:hover{
+      transform:translateY(-6px) scale(1.08);
+
+      box-shadow:
+      0 15px 30px rgba(168,85,247,0.18);
+    }
+
+    /* ================= ANIMATION ================= */
+
+    @keyframes fadeUp{
+
+      from{
+        opacity:0;
+        transform:translateY(40px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media(max-width:768px){
+
+      .contact-section{
+        padding:120px 6% 60px;
+      }
+
+      .contact-container{
+        padding:40px 25px;
+      }
+
+      .contact-container h2{
+        font-size:38px;
+      }
+
+      .contact-container p{
+        font-size:15px;
+      }
+
+      nav ul{
+        gap:18px;
+      }
+
+    }
+
   </style>
+
 </head>
+
 <body>
 
-  <!-- Navbar -->
+  <!-- ================= NAVBAR ================= -->
+
   <header class="navbar">
+
     <div class="logo">Madhav</div>
+
     <nav>
+
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="skills.html">Skills</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="contact.html" class="active">Contact</a></li>
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./skills.html">Skills</a></li>
+        <li><a href="./projects.html">Projects</a></li>
+        <li><a href="./contact.html" class="active">Contact</a></li>
       </ul>
+
     </nav>
+
   </header>
 
-  <!-- Contact Section -->
+  <!-- ================= CONTACT SECTION ================= -->
+
   <section class="contact-section">
-    <h2>Contact Me</h2>
-    <p>Feel free to connect with me via Email, LinkedIn, or GitHub.</p>          
+
+    <div class="contact-container">
+
+      <h2>Contact Me</h2>
+
+      <p>
+        Feel free to connect with me through email, LinkedIn, or GitHub.
+      </p>
+
+      <!-- CONTACT INFO -->
+
+      <div class="contact-info">
+
+        <div class="contact-box">
+
+          <h3>
+            <i class='bx bxs-envelope'></i>
+            Email
+          </h3>
+
+          <a href="mailto:lakhotiamadhav3@gmail.com">
+            lakhotiamadhav3@gmail.com
+          </a>
+
+        </div>
+
+        <div class="contact-box">
+
+          <h3>
+            <i class='bx bxl-linkedin-square'></i>
+            LinkedIn
+          </h3>
+
+          <a href="https://www.linkedin.com/in/madhav-lakhotia-5b43b432a" target="_blank">
+            linkedin.com/in/madhav-lakhotia
+          </a>
+
+        </div>
+
+        <div class="contact-box">
+
+          <h3>
+            <i class='bx bxl-github'></i>
+            GitHub
+          </h3>
+
+          <a href="https://github.com/madhav-lakhotia" target="_blank">
+            github.com/madhav-lakhotia
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- SOCIAL ICONS -->
+
+      <div class="social-icons">
+
+        <a href="mailto:lakhotiamadhav3@gmail.com" target="_blank">
+          <i class='bx bxs-envelope'></i>
+        </a>
+
+        <a href="https://github.com/madhav-lakhotia" target="_blank">
+          <i class='bx bxl-github'></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/madhav-lakhotia-5b43b432a" target="_blank">
+          <i class='bx bxl-linkedin'></i>
+        </a>
+
+      </div>
+
     </div>
 
-    <div class="social-icons">
-        <a href="mailto:lakhotiamadhav3@gmail.com" title="Email Me">
-            <i class='bx bxs-envelope'></i>
-          </a>
-             
-      <a href="https://github.com/madhav-lakhotia" target="_blank"><i class='bx bxl-github'></i></a>
-      <a href="https://www.linkedin.com/in/madhav-lakhotia-5b43b432a" target="_blank"><i class='bx bxl-linkedin'></i></a>
-    </div>
   </section>
 
 </body>
 </html>
-
